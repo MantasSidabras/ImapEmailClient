@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -18,16 +19,21 @@ namespace EmailClient
         public LoginlWindow()
         {
             InitializeComponent();
+            connectErrorLabel.Visible = false;
 
-            imapAddressBox.Text = "imap.gmail.com";
-            usernameBox.Text = "sid.mantas@gmail.com";
-            passwordBox.Text = "txvyrhbp";
+            //imapAddressBox.Text = "imap.gmail.com";
+            //usernameBox.Text = "sid.mantas@gmail.com";
+            //passwordBox.Text = "txvyrhbp";
+
+            //imapAddressBox.Text = "mail.stud.vu.lt";
+            //usernameBox.Text = "s1510701";
+            //passwordBox.Text = "Txvyrhbl_1";
 
         }
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            
+
             ImapControl imapControl = new ImapControl(993);
             user = new LoginInfo();
             user.ImapAddress = imapAddressBox.Text;
@@ -37,16 +43,19 @@ namespace EmailClient
             if (imapControl.Connect(user))
             {
                 this.Hide();
-                new EmailBoxWindow(user, imapControl).Show();
+                new DeleteButton(user, imapControl).Show();
             }
-        }
-
-        private void resetButton_Click(object sender, EventArgs e)
-        {
-            imapAddressBox.Text = string.Empty;
-            usernameBox.Text = string.Empty;
-            passwordBox.Text = string.Empty;
-
+            else
+            {
         }
     }
+
+    private void resetButton_Click(object sender, EventArgs e)
+    {
+        imapAddressBox.Text = string.Empty;
+        usernameBox.Text = string.Empty;
+        passwordBox.Text = string.Empty;
+
+    }
+}
 }

@@ -34,6 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.loginButton = new System.Windows.Forms.Button();
             this.resetButton = new System.Windows.Forms.Button();
+            this.connectErrorLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // imapAddressBox
@@ -92,12 +93,22 @@
             this.resetButton.UseVisualStyleBackColor = true;
             this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
             // 
+            // connectErrorLabel
+            // 
+            this.connectErrorLabel.AutoSize = true;
+            this.connectErrorLabel.Location = new System.Drawing.Point(326, 154);
+            this.connectErrorLabel.Name = "connectErrorLabel";
+            this.connectErrorLabel.Size = new System.Drawing.Size(131, 13);
+            this.connectErrorLabel.TabIndex = 6;
+            this.connectErrorLabel.Text = "Incorrect login information!";
+            // 
             // LoginlWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.connectErrorLabel);
             this.Controls.Add(this.resetButton);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.label2);
@@ -122,6 +133,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.Button resetButton;
+        private System.Windows.Forms.Label connectErrorLabel;
     }
 }
 
