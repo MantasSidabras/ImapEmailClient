@@ -25,9 +25,9 @@ namespace EmailClient
             //usernameBox.Text = "sid.mantas@gmail.com";
             //passwordBox.Text = "txvyrhbp";
 
-            //imapAddressBox.Text = "mail.stud.vu.lt";
-            //usernameBox.Text = "s1510701";
-            //passwordBox.Text = "Txvyrhbl_1";
+            imapAddressBox.Text = "mail.stud.vu.lt";
+            usernameBox.Text = "s1510701";
+            passwordBox.Text = "Txvyrhbl_3";
 
         }
 

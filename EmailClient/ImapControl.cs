@@ -90,8 +90,8 @@ namespace EmailClient
             List<string> foldersList = new List<string>();
             string folders = ReceiveResponse("$ LIST " + "\"\"" + " \"*\"" + "\r\n");
             string[] lines = folders.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
-            string pattern = @"\""([\[\]\w-\/ ]){2,}\""";
-            Regex regex = new Regex(pattern);
+            string pattern = @"\s([a-zA-Z-\[\]\""]+)$";
+            Regex regex = new Regex(pattern); 
 
             foreach (var line in lines)
             {
@@ -99,7 +99,7 @@ namespace EmailClient
                 {
                     var match = regex.Match(line);
                     if (match.Value != string.Empty)
-                        foldersList.Add(match.Value.Replace(@"""", ""));
+                        foldersList.Add(match.Value.Replace(@"""", "").Remove(0, 1));
                 }
             }
             return foldersList;
